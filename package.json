@@ -10,7 +10,8 @@
     "build": "npm run prepare-assets && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "start:tts": "tsx server/local-tts.ts"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "1.0.1",

@@ -6,7 +6,7 @@
   "description": "Sanad — Arabic sign language interpreter",
   "scripts": {
     "prepare-assets": "node scripts/copy-runtime.mjs",
-    "dev": "npm run prepare-assets && vite",
+    "dev": "npm run prepare-assets && concurrently -k \"vite\" \"tsx server/local-tts.ts\"",
     "build": "npm run prepare-assets && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
@@ -14,13 +14,18 @@
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "1.0.1",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
     "onnxruntime-web": "1.30.0"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
+    "@types/express": "^5.0.6",
     "@types/node": "^22.0.0",
     "@vercel/node": "^23.0.1",
+    "concurrently": "^10.0.6",
     "onnxruntime-node": "1.30.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.0",
     "vite": "^7.3.6",
     "vitest": "^4.1.11"

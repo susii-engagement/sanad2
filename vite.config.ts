@@ -2,8 +2,10 @@ import { defineConfig } from 'vite';
 
 // /api/sentence is the large sentence model (server/sentence-api), published on 127.0.0.1:3021
 // on the SLI server; dev and preview servers forward to it so the e2e tests use the real API.
-const api = { '/api': 'http://127.0.0.1:3021' };
-
+const api = {
+  '/api/sentence': 'http://127.0.0.1:3021',
+  '/api/tts': 'http://127.0.0.1:3022',
+};
 export default defineConfig({
   // Served from the root of a custom domain on GitHub Pages; relative paths also work in subfolders.
   base: './',

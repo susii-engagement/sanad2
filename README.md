@@ -1,4 +1,4 @@
-# SLI — AI Arabic Sign Language Interpreter
+# Sanad Arabic Sign Language Interpreter
 
 SLI translates **Arabic Sign Language ⇄ Arabic text ⇄ speech**, entirely in the browser.
 
@@ -38,15 +38,10 @@ works offline.
 | Auto mode | Runs both; letters only while the hand is still and raised and the word model does not see a word | `src/recognition/interpreter.ts` |
 | Text → sign | Arabic normalisation, phrase matching, light stemming, numbers, fingerspelling | `src/translate/` |
 
-The recognition model is the MIT-licensed
-[Word-level Arabic Sign Language ST-Transformer](https://github.com/yousefelkilany/Word-level-Arabic-Sign-language),
-trained on [KArSL-502](https://hamzah-luqman.github.io/KArSL/) (Unified Arabic Sign Language: 31 numbers,
-39 letters and 432 words).
 
 ## Sentence models
 
-Sentences mode reads a whole Saudi Sign Language sentence at once (CTC, trained on
-[Isharah-1000](https://www.kaggle.com/datasets/tfmohamedyahia/isharah-1000-pose), 672 signs, after pre-training on KArSL).
+
 Word error rate (WER) is measured on the Isharah signer-independent dev split, whose signer is never seen in training:
 
 | Model | Runs | Size | WER | One hand hidden | 1.5× faster | No face |
@@ -59,7 +54,7 @@ is slow (4 s) or unreachable. The phone model learnt from a large teacher (disti
 score about the same. For comparison, the best signer-independent dev result in the Isharah paper is 17.9% (Swin-MSTP, RGB video),
 and the best pose-based entry in the MSLR 2025 challenge reached 7.3%, so there is room to improve.
 Training rounds and stress tests: `training/sentences/rounds.md`. Licence of both models: CC-BY-NC-SA-4.0 (from Isharah).
-Weights (ONNX and PyTorch): [DF-Team/sli-sentences](https://huggingface.co/DF-Team/sli-sentences) on Hugging Face.
+Weights (ONNX and PyTorch)
 
 ## Measured accuracy
 
@@ -109,16 +104,6 @@ often pose and face are refreshed, and `?debug` keeps raw landmarks on `window._
 Issues and pull requests are welcome, especially better sentence models. [CONTRIBUTING.md](CONTRIBUTING.md) covers
 the data, the training commands and how models are compared.
 
-## Credits
+## Credits* 
 
-- **Digital Fingers team** — Anas Mohamed Mokhtar, Iyad Abdel Raouf Samir.
-- **KArSL** — Sidig, Luqman, Mahmoud, Mohandes. *KArSL: Arabic Sign Language Database.*
-  ACM TALLIP 20(1), 2021. Sign videos and labels.
-- **Word-level ArSL ST-Transformer** — Yousef Elkilany, MIT License.
-- **MediaPipe** (Apache 2.0) and **ONNX Runtime Web** (MIT).
-
-## Licence
-
-Code: MIT ([LICENSE](LICENSE)). Model files keep the licences of their sources: the sentence models are
-CC BY-NC-SA 4.0 (from Isharah) and the word model is MIT (Yousef Elkilany).
-# sanad
+#Sanad
